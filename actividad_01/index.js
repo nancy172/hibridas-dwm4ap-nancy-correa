@@ -13,7 +13,7 @@ const a1 = new Alumno(
 console.log(a1.Nombre());
 
 //Edad
-console.log(`Edad: ${a1.edad}`)
+console.log(`Edad: ${a1.retornarEdad()}`)
 
 //Carrera
 console.log(a1.mostrarCarrera());
@@ -25,4 +25,4 @@ a1.mostrarMaterias();
 
 //Edad modificada
 a1.modificarEdad(25);
-console.log(`Edad actualizada: ${a1.edad}`);
+console.log(`Edad modificada: ${a1.retornarEdad()}`);
