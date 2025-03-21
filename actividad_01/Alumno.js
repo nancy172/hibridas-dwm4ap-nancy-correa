@@ -15,34 +15,34 @@ class Alumno {
     }
     //Métodos
     mostrarCarrera(){
-
+        return `Carrera: ${this.carrera}`;
     }
     Nombre(){
-
+        return `Nombre: ${this.nombre} ${this.apellido}`;
     }
     modificarEdad(edadNueva){
-
+        this.edad = edadNueva;
     }
-    agregarMateria(){
-
+    agregarMateria(materia){
+        this.materias.push(materia);
     }
     mostrarMaterias(){
-
+        console.table(this.materias);
     }
     retornarEdad(){
-
+        return this.edad;
     }
 
 
-    getNombre(){
-        return this.nombre;
-    }
-    getApellido(){
-        return this.apellido;
-    }
-    setNombre(nombre){
-        this.nombre = nombre;
-    }
+    // getNombre(){
+    //     return this.nombre;
+    // }
+    // getApellido(){
+    //     return this.apellido;
+    // }
+    // setNombre(nombre){
+    //     this.nombre = nombre;
+    // }
 }
 
 // Se exporta la clase
