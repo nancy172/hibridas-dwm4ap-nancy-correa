@@ -1,19 +1,22 @@
-const fs = require('fs');
-const path = './products.json';
-
-class ProductManger{
+class ProductManager{
     products = [];
     constructor(products=[]){
-        this.products = products
+        this.products = products;
     }
-    // { name: 'TV 32', description: 'TV LG 32', image: 'foto.jpg', price: 54000}
+    
     addProduct(product){
-        // debería validar los campos
-        // formateamos los datos
-        const data = JSON.stringify( product, null, 2);
-        fs.writeFile(path, data, function(){
+        // Validar que no haya producto con mismo ID
+        if(this.products.some(p => p.id === product.id)){
+            console.log("El ID ya existe.");
+            return;
+        }
 
-        })
+        // Validar campos obligatorios
+        if(!product.id || !product.title || !product.description || !product.price || !product.stock){
+            console.log("Todos los campos son obligatorios.");
+            return;
+        }
+
         this.products.push( product);
     }
 
@@ -23,15 +26,10 @@ class ProductManger{
 
     getProductById(id){
         const product = this.products.find(  item => item.id == id  );
-        return product ? product : {};
+        return product ? product : "Not found";
     }
 }
 
-const key = '1234';
+module.exports = ProductManager;
 
-module.exports = { ProductManger, key };
-/* module.exports = { 
-                    ProductManger: ProductManger, 
-                    key: key  
-                }; */
 
