@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Laptop Gamer",
+    "description": "Laptop para gaming",
+    "price": 3000,
+    "stock": 20,
+    "id": "a1fe8744-b996-430c-9182-43508b4e5254"
+  },
+  {
+    "title": "Teclado",
+    "description": "Teclado Mecánico",
+    "price": 25000,
+    "stock": 25,
+    "id": "f2cab7c9-07c4-490c-8ce1-6e04b58576d5"
+  },
+  {
+    "title": "Mouse",
+    "description": "Mouse inalámbrico",
+    "price": 4000,
+    "stock": 10,
+    "id": "ac77cf11-6338-4f63-87d5-535f16465555"
+  }
+]
