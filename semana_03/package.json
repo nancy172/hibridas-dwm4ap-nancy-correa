@@ -1,0 +1,17 @@
+{
+  "name": "servidor",
+  "version": "1.0.0",
+  "description": "Servidor web con express",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nancy",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.4.1",
+    "espress": "^0.0.0",
+    "express": "^5.1.0"
+  }
+}
