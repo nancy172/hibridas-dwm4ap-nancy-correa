@@ -38,7 +38,12 @@ app.get('/api/products/:id', async (request, response) => {
 // Ruta para agregar nuevo producto:
 app.post('/api/products', async (request, response) => {
     try {
-        
+        const product = request.body;
+        console.log(product);
+
+        const id = await admin.addProduct(product);
+
+        response.json( {id} );
     } catch (error) {
         response.status(500).json( {error: "Hubo un error al agregar el producto."} );
     }
