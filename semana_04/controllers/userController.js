@@ -38,5 +38,5 @@ const deleteUser = async (request, response) => {
     }
 }
 
-export default { getUsers, getUserById, addUser, updateUser, deleteUser}
+export { getUsers, getUserById, addUser, updateUser, deleteUser}
 
