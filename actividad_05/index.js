@@ -5,6 +5,9 @@ import ProductManager from "./ProductManager.js";
 const port = 5000;
 const app = express();
 
+// Para que express pueda leer los datos que se le manda en formato JSON a través de request.body:
+app.use(express.json());
+
 // Se crea una instancia de ProductManager
 const admin = new ProductManager();
 
@@ -14,7 +17,7 @@ app.get('/api/products', async (request, response) => {
         const products = await admin.getProducts();
         response.json(products);
     } catch (error) {
-        response.status(500).json( {error: error.message} );
+        response.status(404).json( {error: "Hubo un error al obtener los productos."} );
     }
 });
 
@@ -33,7 +36,7 @@ app.get('/api/products/:id', async (request, response) => {
     } catch (error) {
         response.status(500).json( {error: "Hubo un error al obtener el producto."} );
     }
-})
+});
 
 // Ruta para agregar nuevo producto:
 app.post('/api/products', async (request, response) => {
@@ -43,11 +46,16 @@ app.post('/api/products', async (request, response) => {
 
         const id = await admin.addProduct(product);
 
+        if (id === "Todos los campos son obligatorios") {
+            return response.status(400).json({ error: "Faltan datos del producto." });
+        }
+
         response.json( {id} );
+
     } catch (error) {
         response.status(500).json( {error: "Hubo un error al agregar el producto."} );
     }
-})
+});
 
 // Se inicia el servidor
 app.listen(port, () => {

@@ -26,8 +26,7 @@ class ProductManager{
     async addProduct(product){
         // Se valida primero los campos obligatorios
         if(!product.title || !product.description || !product.price || !product.stock){
-            console.log("❌Todos los campos son obligatorios.");
-            return;
+            return "Todos los campos son obligatorios";
         }
 
         // Se obtiene la lista de productos actualizada
@@ -56,6 +55,7 @@ class ProductManager{
 
     }
 
+    // Se obtiene producto por id
     async getProductById(id){
         const products = await this.getProducts();
         const product = products.find(  item => item.id == id  );
