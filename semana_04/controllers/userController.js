@@ -1,4 +1,4 @@
-import UsersManager from "../models/UsersManager";
+import UsersManager from "../models/UsersManager.js";
 
 const userModel = new UsersManager();
 
@@ -13,7 +13,7 @@ const getUserById = async (request, response) => {
     if ( user) {
         response.status(200).json( user );
     } else {
-        response.status(404).json({msg: 'No se encontro el usuario'});
+        response.status(404).json({msg: 'No se encontró el usuario'});
     }
 }
 
@@ -25,18 +25,18 @@ const addUser = async (request, response) => {
 }
 
 const updateUser = async (request, response) => {
-
+    response.json({});
 }
 
 const deleteUser = async (request, response) => {
     const id = request.params.id;
     const status = await userModel.deleteUserById(id);
     if ( status) {
-        response.json( {msg: 'Usuarios eliminado'} );
+        response.json( {msg: 'Usuario eliminado'} );
     } else {
         response.status(404).json({msg: 'No se encontro el usuario'});
     }
 }
 
-export { getUsers, getUserById, addUser, updateUser, deleteUser}
+export { getUsers, getUserById, addUser, updateUser, deleteUser};
 

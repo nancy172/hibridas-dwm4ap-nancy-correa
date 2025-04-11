@@ -1,7 +1,7 @@
 import fs from 'fs/promises';
 const path = "./users.json";
 
-class UserManager{
+class UsersManager{
     users = [];
     constructor(users=[]){
         this.users = users;
@@ -11,7 +11,6 @@ class UserManager{
         return crypto.randomUUID();
     }
 
-    // Se obtienen los productos
     async getUsers(){
         try {
             const data = await fs.readFile(path);
@@ -22,9 +21,7 @@ class UserManager{
         }
     }
     
-    
-    // Se agrega un producto
-    async addProduct(user){
+    async addUser(user){
         await this.getUsers();
         user.id = this.randomID();
         this.users.push( user);
@@ -38,14 +35,12 @@ class UserManager{
         }
     }
     
-    // Se obtiene user por id
     async getUserById(id){
         const users = await this.getUsers();
         const user = users.find(  item => item.id == id  );
         return user ? user : undefined;
     }
 
-    // Se elimina user por id
     async deleteUserById(id){
         await this.getUsers();
         const pos = this.users.findIndex(u => u.id == id);
@@ -60,7 +55,6 @@ class UserManager{
         }
     }
 
-    // Se edita user
     async updateUserById(id, user){
         await this.getUsers();
         const pos = this.users.findIndex(u => u.id == id);
@@ -76,4 +70,4 @@ class UserManager{
     }
 }
 
-export default UserManager;
+export default UsersManager;

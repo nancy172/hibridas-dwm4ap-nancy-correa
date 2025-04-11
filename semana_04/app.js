@@ -3,7 +3,9 @@ import chalk from "chalk";
 
 const port = 5000;
 const app = express();
-import routerApi from "./routes";
+import routerApi from "./routes/index.js";
+
+// Middleware
 app.use(express.json());
 
 app.get('/', (request, response) =>{
@@ -11,6 +13,7 @@ app.get('/', (request, response) =>{
     response.send('Home');
 })
 
+// Se llaman a las rutas
 routerApi(app);
 
 
