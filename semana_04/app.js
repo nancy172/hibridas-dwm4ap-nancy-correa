@@ -1,7 +1,9 @@
 import express from "express";
 import chalk from "chalk";
+import dotenv from "dotenv";
+dotenv.config();
 
-const port = 5000;
+const port = process.env.PORT;
 const app = express();
 import routerApi from "./routes/index.js";
 
