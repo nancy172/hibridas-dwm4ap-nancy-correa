@@ -1,22 +1,25 @@
 import express from "express";
 import chalk from "chalk";
 import dotenv from "dotenv";
-import mongoose from "mongoose";
+import mongoose from "mongoose"; // Se importa mongoose
+
 dotenv.config();
 
-const dburi = process.env.MONGODB_URI;
+const dburi = process.env.MONGODB_URI; // Variable de entorno de mongodb
 
 const port = process.env.PORT;
 //const userdb = process.env.USER_DB;
 const app = express();
 import routerApi from "./routes/index.js";
 
+// Conexión con la base de datos
 mongoose.connect(dburi);
 const db = mongoose.connection;
 
 db.on( 'error', () => {console.error({error})});
 
-db.once('open', () => {console.log("conexion")});
+db.once('open', () => {console.log("Conexion con la DB correcta")});
+
 
 // Middleware
 app.use(express.json());
