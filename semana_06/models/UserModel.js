@@ -4,7 +4,10 @@ import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 const mySchema = new Schema({
     name: String,
-    email: String,
+    email: {
+        type: String,
+        required: true,
+    }
 });
 
 const User = mongoose.model('users', mySchema); // Recibe el nombre que le voy a dar a la colección y luego recibe el esquema
