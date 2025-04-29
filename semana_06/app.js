@@ -2,9 +2,7 @@ import express from "express";
 import chalk from "chalk";
 import dotenv from "dotenv";
 import mongoose from "mongoose"; // Se importa mongoose
-
 dotenv.config();
-
 const dburi = process.env.MONGODB_URI; // Variable de entorno de mongodb
 
 const port = process.env.PORT;

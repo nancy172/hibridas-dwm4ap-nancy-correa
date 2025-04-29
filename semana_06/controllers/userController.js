@@ -11,7 +11,7 @@ const auth = async(request, response) => {
     const user = await User.findOne({email: email});
 
     if(!user){
-        return response.status(404).json({msg: "El usuario no existe."});
+        return response.status(404).json({msg: "Usuario inválido."});
     }
 
     const passOk = await bcrypt.compare(password, user.password);
@@ -20,14 +20,15 @@ const auth = async(request, response) => {
         return response.status(404).json({msg: "Contraseña invalida."});
     }
 
-    // Se crea jwt
+    // Se crea el token
     const data = {
         id : user._id,
         email: user.email
     }
     const jwt = jsonwebtoken.sign(data, secret_key, {expiresIn: `1h`})
 
-    response.json({msg: "Credenciales correctas."})
+    response.json({msg: "Credenciales correctas.", token: jwt});
+
 }
 
 const getUsers = async (request, response) => {
@@ -50,7 +51,7 @@ const getUserById = async (request, response) => {
 const addUser = async (request, response) => {
     const user = request.body;
     if(!user.name || !user.email ||!user.password){
-        return response.status(403).json({msg: "Faltan param"});
+        return response.status(403).json({msg: "Faltan parametros."});
     }
 
     console.log({user});
@@ -63,10 +64,6 @@ const addUser = async (request, response) => {
 
     response.json( {msg: "Usuario creado", data: {id: doc._id, name: doc.name}} )
 
-    response.json( { doc } );
-
-    //const id = await userModel.addUser(user);
-    //response.json( { id} );
 }
 
 const updateUser = async (request, response) => {
@@ -78,7 +75,7 @@ const updateUser = async (request, response) => {
     if ( newUser) {
         response.json( {msg: 'Usuario actualizado', data :{newUser}} );
     } else {
-        response.status(404).json({msg: 'No se encontro el usuario'});
+        response.status(404).json({msg: 'No se encontró el usuario'});
     }
 
    
