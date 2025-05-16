@@ -1,6 +1,7 @@
 import viteLogo from '/vite.svg'
 import logo from '/code.png'
 import './App.css'
+import Card from './components/Card';
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
       <hr/>
       <p>Su nombre es { nombre.toUpperCase() } </p>
       <p>Su edad es { sumarEdad(edad) } </p>
+      <Card nombre="Teclado" precio={23}></Card>
     </>
   )
 }
