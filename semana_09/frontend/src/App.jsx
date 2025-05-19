@@ -11,6 +11,10 @@ function App() {
   const detalleLogo = 'Logo de la aplicación';
   const detalle = <h4> React es una librería de JS</h4>;
   const titulo = 'React';
+  const objeto = {
+    cantidad: 100,
+    descuento: 10
+  }
 
   return (
     <>
@@ -23,7 +27,20 @@ function App() {
       <hr/>
       <p>Su nombre es { nombre.toUpperCase() } </p>
       <p>Su edad es { sumarEdad(edad) } </p>
-      <Card nombre="Teclado" precio={23}></Card>
+
+      <Card 
+        nombre="Teclado RGB" 
+        precio={23} 
+        datos={objeto} 
+        descripcion="Teclado mecánico RGB..." 
+        foto="https://http2.mlstatic.com/D_NQ_NP_2X_636746-MLA52350707355_112022-F.webp"
+      />
+
+      <Card
+        precio={25} 
+        nombre="Mouse" 
+        datos={objeto}
+      />
     </>
   )
 }
