@@ -1,35 +1,73 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState } from 'react';
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+import Header from './components/Header';
+import TodoList from './components/TodoList';
+import TodoItem from './components/TodoItem';
+import Footer from './components/Footer';
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+function App(){
+
+    const [ cantidad, setCantidad ] = useState(5); // defino el valor inicial de cantidad
+    const [ user, setUser] = useState( {name: 'Lucas', age:22} );
+    const [ tareas, setTareas] = useState([
+        {id:1, nombre: "Estudiar React", completo: true},
+        {id:2, nombre: "Regar plantas", completo: false},
+        {id:3, nombre: "Turno con el dentista", completo: true},
+        {id:4, nombre: "Ver serie", completo: true},
+        {id:5, nombre: "Salir a correr", completo: false}
+    ])
+ 
+
+    function sumar(){
+        // No se puede modificar un estado directamente, no son mutables. Hay que usar el setter
+        setCantidad(cantidad + 1);
+    }
+
+    function cambiarEstado(){
+        // user.name = 'Carlos';
+        // user.age = 26;
+        setUser( {...user, age: 31} ); // Se actualiza solo la edad
+    }
+
+    function addTarea(){
+        const newTarea = {id:6, nombre: "Salir a caminar", completo: false};
+        setTareas( [...tareas, newTarea] );
+    }
+
+
+
+    return(
+        <>
+            <Header title="Actividad 09 - Lista de tareas"/>
+            <main>
+                <hr />
+                <h4>Usuario</h4>
+                <ul>
+                    <li><strong>Nombre:</strong> {user.name} </li>
+                    <li><strong>Edad:</strong> {user.age} </li>
+                </ul>
+                <h4>Cantidad de tareas: {cantidad}</h4>
+                <button type="button"onClick={cambiarEstado}>Cambiar estado</button>
+                <button type="button"onClick={sumar}>Sumar</button>
+                <button type="button"onClick={addTarea}>Crear tarea</button>
+                {
+                    tareas.length > 0 ? (<h3> Hay tareas</h3>) : (<h3>No hay tareas</h3>)
+                }
+                <TodoList>
+                    {
+                    tareas.map( tarea => 
+                        <TodoItem 
+                            nombre={tarea.nombre} 
+                            completo={tarea.completo} 
+                            key={tarea.id} 
+                        /> )
+                    }
+                </TodoList>
+            </main>
+            <Footer/>
+        </>
+    )
 }
 
-export default App
+export default App;
