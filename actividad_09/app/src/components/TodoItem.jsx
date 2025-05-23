@@ -1,11 +1,14 @@
-import React from "react";
+import React from 'react';
 import '../App.css'
 
-function TodoItem( {tarea} ){
+function TodoItem( {nombre, completo} ){
     return(
-        <>
-            <li>{tarea.nombre}</li>
-        </>
+        <li>
+            <span> 
+                <input type="checkbox" checked= {completo} /> 
+                {nombre} 
+            </span>
+        </li>
     )
 }
 

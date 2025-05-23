@@ -1,34 +1,35 @@
-import { useState } from 'react'
-import TodoApp from './components/TodoApp.jsx'
-import Header from './components/Header.jsx'
-import TodoList from './components/TodoList.jsx'
-import TodoItem from './components/TodoItem.jsx'
-import Footer from './components/Footer.jsx'
+import Header from './components/Header';
+import TodoList from './components/TodoList';
+import TodoItem from './components/TodoItem';
+import Footer from './components/Footer';
 import './App.css'
 
-function App() {
+function App(){
 
-  const tareas = [
-    {id:1, nombre: "Tarea 1"},
-    {id:2, nombre: "Tarea 2"},
-    {id:3, nombre: "Tarea 3"},
-    {id:4, nombre: "Tarea 4"}
-  ]
+    const tareas = [
+        {id:1, nombre: "Estudiar React", completo: true},
+        {id:2, nombre: "Regar plantas", completo: false},
+        {id:3, nombre: "Turno con el dentista", completo: true},
+        {id:4, nombre: "Ver serie", completo: true},
+        {id:5, nombre: "Salir a correr", completo: false}
+    ]
 
-  return (
-    <>
-        <Header></Header>
-        <TodoApp>
-          <TodoList>
-            {
-              tareas.map( tarea => <TodoItem nombre={tarea.nombre}></TodoItem>)
-            }
-
-          </TodoList>
-        </TodoApp>
-        <Footer></Footer>
-    </>
-  )
+    return(
+        <>
+            <Header/>
+            <main>
+                {
+                    tareas.length > 0 ? (<h3> Hay {tareas.length} tareas</h3>) : (<h3>No hay tareas</h3>)
+                }
+                <TodoList>
+                    {
+                    tareas.map( tarea => <TodoItem nombre={tarea.nombre} completo={tarea.completo} key={tarea.id} />)
+                    }
+                </TodoList>
+            </main>
+            <Footer/>
+        </>
+    )
 }
 
-export default App
+export default App;

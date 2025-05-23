@@ -1,16 +1,14 @@
 import React from "react";
 import '../App.css'
 
-function TodoList(){
+function TodoList(props){
 
     return(
-        <>
-            <ul>
-                
-            </ul>
-        </>
+        <ul>
+            {props.children}
+        </ul>
         
-    )
-}
+    );
+};
 
 export default TodoList;

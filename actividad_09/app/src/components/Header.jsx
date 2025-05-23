@@ -1,10 +1,9 @@
 import React from "react";
-import '../App.css'
 
 function Header(){
     return(
         <header>
-            <h1>Actividad 09</h1>
+            <h1>Actividad 09 - Lista de tareas</h1>
         </header>
     )
 }
