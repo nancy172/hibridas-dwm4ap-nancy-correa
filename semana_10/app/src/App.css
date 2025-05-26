@@ -11,13 +11,14 @@ ul{
 ul li{
   list-style: none;
   padding: 1em 0;
+  padding-left: 1em;
   margin: 2em 0;
   border: 1px solid rgba(255, 255, 255, 0.87);
   border-radius: 8px;
 }
 
 ul li span input{
-   margin: 0 1em;
+  margin: 0 .5em;
 }
 
 h3{
