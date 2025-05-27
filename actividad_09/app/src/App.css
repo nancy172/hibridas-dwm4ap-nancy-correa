@@ -1,23 +1,35 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  width: 100%;
+  max-width: 500px;
+  margin: 3em auto;
+  padding: 3rem ;
+  background-color: rgb(243, 248, 255);
+  border-radius: 10px;
+}
+
+#add{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #edeef0;
+  border-radius: 30px;
+  padding-left: 1em;
+  margin: 2em;
+}
+#add input{
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
 }
 
 ul{
   padding: 0;
-}
-
-ul li{
-  list-style: none;
-  padding: 1em 0;
-  margin: 2em 0;
-  border: 1px solid rgba(255, 255, 255, 0.87);
-  border-radius: 8px;
+  margin-bottom: 3em;
 }
 
 ul li span input{
-   margin: 0 1em;
+  margin: 0 1em;
 }
 
 h3{
@@ -25,8 +37,40 @@ h3{
   padding: 1em 0;
 }
 
+.todo-item {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em;
+  margin: 1em 0;
+  border: 1px solid #1d227a;
+  border-radius: 10px;
+}
+
+.todo-text {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.delete-edit {
+  display: flex;
+  gap: 1rem;
+}
+
+.delete-edit a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 Footer{
-  height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;

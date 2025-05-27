@@ -4,7 +4,7 @@ import '../App.css'
 function Footer(){
     return(
         <footer>
-            <p>Aplicaciones Híbridas | Actividad 09 - Lista de tareas</p>
+            <p>Aplicaciones Híbridas | Actividad 09 - To-Do List</p>
         </footer>
     )
 }
