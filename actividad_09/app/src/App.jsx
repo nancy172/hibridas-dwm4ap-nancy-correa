@@ -18,12 +18,8 @@ function App(){
         <>
             <Header/>
             <main>
-                <div id="add">
-                    <input type="text" placeholder="Escriba la tarea..." />
-                    <button type="button">+ Agregar</button>
-                </div>
                 {
-                    tareas.length > 0 ? (<h3> Lista de tareas</h3>) : (<h3>No hay tareas</h3>)
+                    tareas.length > 0 ? (<h3> Lista de tareas </h3>) : (<h3>No hay tareas</h3>)
                 }
                 <TodoList>
                     {
