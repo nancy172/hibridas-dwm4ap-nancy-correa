@@ -21,6 +21,8 @@
   border: none;
   outline: none;
   background: transparent;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 1em;
 }
 
 ul{
