@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 
 function TodoItem( {nombre, completo} ){
+
     return(
         <li className="todo-item">
             <span className="todo-text"> 
