@@ -1,0 +1,42 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+ul{
+  padding: 0;
+}
+
+ul li{
+  list-style: none;
+  padding: 1em 0;
+  padding-left: 1em;
+  margin: 2em 0;
+  border: 1px solid rgba(255, 255, 255, 0.87);
+  border-radius: 8px;
+}
+
+ul li span input{
+  margin: 0 .5em;
+}
+
+h3{
+  text-align: center;
+  padding: 1em 0;
+}
+
+Footer{
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main button{
+  margin-left: 1em;
+}
+
+
+
+
