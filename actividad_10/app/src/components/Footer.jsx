@@ -1,10 +1,18 @@
 import React from "react";
 import '../App.css'
 
-function Footer(){
+function Footer( {tareas} ){
+
+    const tareasTotal = tareas.length;
+    const tareasCompletadas = tareas.filter( t => t.completo).length;
+    const tareasPendientes = tareas.filter( t => !t.completo).length;
+
+
     return(
         <footer>
-            <p>Aplicaciones Híbridas | Actividad 09 - To-Do List</p>
+            <p style={{ color: '#007bff' }}>Total: {tareasTotal} </p>
+            <p style={{ color: 'green' }}>Completadas: {tareasCompletadas} </p>
+            <p style={{ color: 'orange' }}>Pendientes: {tareasPendientes} </p>
         </footer>
     )
 }

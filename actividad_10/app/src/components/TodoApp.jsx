@@ -56,7 +56,7 @@ function TodoApp(){
                     }
                 </TodoList>
             </main>
-            <Footer/>
+            <Footer tareas={tareas}/>
         </>
     )
 }

@@ -2,13 +2,9 @@
   width: 100%;
   max-width: 500px;
   margin: 3em auto;
-  padding: 3rem ;
+  padding: 3em;
   background-color: rgb(243, 248, 255);
   border-radius: 10px;
-}
-
-.addButton{
-  margin: 0 auto;
 }
 
 ul{
@@ -62,6 +58,12 @@ Footer{
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 80px;
+}
+
+footer p{
+  font-weight: 700;
+  margin: 0 1em;
 }
 
 

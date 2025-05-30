@@ -10,7 +10,7 @@ function Header( {addTarea} ){
                 <img src={icono} alt="Ícono de una lista de tareas" />
             </header>
 
-            <button className="addButton" type="button" onClick={addTarea}>+ Agregar tarea</button>
+            <button type="button" onClick={addTarea}>+ Agregar tarea</button>
         </>
     )
 }
