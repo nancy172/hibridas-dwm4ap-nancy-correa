@@ -16,7 +16,7 @@ function TodoApp(){
     ]);
 
     // Agregar, marcar y eliminar tarea
-    function addTarea(){
+    function agregarTarea(){
         const tarea = prompt('¿Qué tarea quiere agregar?');
         if (!tarea || tarea.trim() === '') return;
 
@@ -38,7 +38,7 @@ function TodoApp(){
 
     return(
         <>
-            <Header addTarea={addTarea}/>
+            <Header agregarTarea={agregarTarea}/>
             <main>
                 {
                     tareas.length > 0 ? (<h3> Lista de tareas </h3>) : (<h3>No hay tareas</h3>)

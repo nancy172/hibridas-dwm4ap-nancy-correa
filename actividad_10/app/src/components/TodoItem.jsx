@@ -1,5 +1,4 @@
 import React from 'react';
-import '../App.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 
@@ -9,8 +8,7 @@ function TodoItem( {id, nombre, completo, marcarTarea, eliminarTarea} ){
         marcarTarea(id);
     }
 
-    function handlerEliminar(e){
-        e.preventDefault();
+    function handlerEliminar(){
         eliminarTarea(id);
     }
 
