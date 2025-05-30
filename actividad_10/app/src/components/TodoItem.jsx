@@ -3,21 +3,30 @@ import '../App.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 
-function TodoItem( {nombre, completo, cambiarTarea, eliminarTarea} ){
+function TodoItem( {id, nombre, completo, marcarTarea, eliminarTarea} ){
 
-    function handlerClick(){
-        cambiarTarea(nombre);
+    function handlerMarcar(){
+        marcarTarea(id);
+    }
+
+    function handlerEliminar(e){
+        e.preventDefault();
+        eliminarTarea(id);
     }
 
     return(
         <li className="todo-item">
             <span className="todo-text"> 
-                <input onClick={handlerClick} type="checkbox" /> 
+                <input onChange={handlerMarcar} type="checkbox" checked={completo} /> 
                 {nombre} 
             </span>
             <div className="delete-edit">
-                <a href="#" onClick={eliminarTarea}><FontAwesomeIcon icon={faPenToSquare} size="xl" style={{color: "#4786e4",}} /> </a>
-                <a href="#"><FontAwesomeIcon icon={faTrash} size="xl" style={{color: "#d32b0d",}} /> </a>
+                <a href="#">
+                    <FontAwesomeIcon icon={faPenToSquare} size="xl" style={{color: "#4786e4",}} /> 
+                </a>
+                <a href="#" onClick={handlerEliminar}>
+                    <FontAwesomeIcon icon={faTrash} size="xl" style={{color: "#d32b0d",}} /> 
+                </a>
             </div>
         </li>
     );
