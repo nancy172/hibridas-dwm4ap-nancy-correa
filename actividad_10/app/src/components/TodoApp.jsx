@@ -7,23 +7,36 @@ import { useState } from 'react';
 
 function TodoApp(){
 
-    const [tareas, setTareas] = useState([
+    /* const [tareas, setTareas] = useState([
         {id:1, nombre: "Estudiar React", completo: true},
         {id:2, nombre: "Regar plantas", completo: false},
         {id:3, nombre: "Turno con el dentista", completo: true},
         {id:4, nombre: "Ver serie", completo: true},
         {id:5, nombre: "Salir a correr", completo: false}
-    ]);
+    ]); */
+
+    const [ tareas, setTareas] = useState( () => {
+        console.log("Inicio del estado");
+        const lista = JSON.parse(localStorage.getItem('tareas'));
+
+        return lista ? lista : [];
+    });
+
+    const [tarea, setTarea] = useState({ id: 0, nombre:'', completo: true})
 
     // Agregar, marcar y eliminar tarea
-    function agregarTarea(){
-        const tarea = prompt('¿Qué tarea quiere agregar?');
-        if (!tarea || tarea.trim() === '') return;
+    function agregarTarea(e){
+        e.preventDefault();
+        const id = crypto.randomUUID();
 
-        const newId = tareas.length > 0 ? Math.max(...tareas.map(t => t.id)) + 1 : 1;
+        if (!tarea.nombre || tarea.nombre.trim() === '') return;
         
-        const newTarea = {id: newId, nombre: tarea, completo: false};
+        const newTarea = {id, nombre: tarea.nombre, completo: false};
         setTareas( [...tareas, newTarea] );
+
+        // Se limpia el input después de agregar
+        setTarea( {...tarea, nombre: ''} );
+
     };
 
     function marcarTarea (id){
@@ -38,7 +51,11 @@ function TodoApp(){
 
     return(
         <>
-            <Header agregarTarea={agregarTarea}/>
+            <Header 
+                agregarTarea={agregarTarea}
+                tarea={tarea}
+                setTarea={setTarea}
+            />
             <main>
                 {
                     tareas.length > 0 ? (<h3> Lista de tareas </h3>) : (<h3>No hay tareas</h3>)

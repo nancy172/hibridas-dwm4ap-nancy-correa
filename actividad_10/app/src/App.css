@@ -54,6 +54,26 @@ header{
   align-items: center;
 }
 
+#add{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+}
+
+#add input{
+  width: 50%;
+  padding: 0.6em 1.2em;
+  border: 2px solid rgb(201, 222, 255);
+  border-radius: 30px;
+  font-size: 1em;
+  margin-right: 1em;
+}
+
+#add input:focus{
+  outline: none;
+}
+
 Footer{
   display: flex;
   justify-content: center;
