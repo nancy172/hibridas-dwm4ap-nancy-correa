@@ -74,6 +74,10 @@ header{
   outline: none;
 }
 
+#edit{
+  pointer-events: none;
+}
+
 Footer{
   display: flex;
   justify-content: center;

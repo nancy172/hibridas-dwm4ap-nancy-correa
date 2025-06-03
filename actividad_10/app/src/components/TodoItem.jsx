@@ -19,7 +19,7 @@ function TodoItem( {id, nombre, completo, marcarTarea, eliminarTarea} ){
                 {nombre} 
             </span>
             <div className="delete-edit">
-                <a href="#">
+                <a href="#" id='edit'>
                     <FontAwesomeIcon icon={faPenToSquare} size="xl" style={{color: "#4786e4",}} /> 
                 </a>
                 <a href="#" onClick={handlerEliminar}>
